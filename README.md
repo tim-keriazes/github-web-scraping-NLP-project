@@ -3,6 +3,8 @@
 # Natural Language Processing and the Currency of the Future
 Team members: **Jeremy Lagunas**, **Lindy Castellaw**, **Luis Arce**, **Tim Keriazes**
 
+## [Final Presentation](https://docs.google.com/presentation/d/1c7miCoOi6WboRbjxgJ3QwWLkWU0SzZHA5WGdjdK600U/edit?usp=sharing)
+
 September 2022
 
 ## 📈   Project Goals
