@@ -122,7 +122,6 @@ Baseline will be predicting the language to be the most popular language (JavaSc
 
 ## Selecting the Best Model:
 
-### Use Table below as a template for all Modeling results for easy comparison:
 
 | Model | Performace |
 | ---- | ----|
