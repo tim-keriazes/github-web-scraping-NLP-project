@@ -6,10 +6,13 @@ from nltk.tokenize.toktok import ToktokTokenizer
 from nltk.corpus import stopwords
 import pandas as pd
 
+def fill_nulls(df):
+    df["language"].fillna("Not Specified", inplace = True)
+    return df
+
 def drop_nulls(df):
     df = df.dropna()
     return df
-
 
 def basic_clean(string):
     ''' Receives a string of text, processes it & then returns its normalized version.
@@ -58,3 +61,12 @@ def remove_stopwords(string, extra_words=None, exclude_words=None):
     filtered_string = ' '.join(filtered_words)
     
     return filtered_string
+
+
+
+def clean(string):
+    string = basic_clean(string)
+    string = tokenize(string)
+    string = lemmatize(string)
+    string = remove_stopwords(string, extra_words=None, exclude_words=None)
+    return string
