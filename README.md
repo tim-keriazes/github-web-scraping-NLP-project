@@ -40,16 +40,10 @@ We will build a model to succesfully predict the main programming language of a 
 ## :open_file_folder:   Data Dictionary
 **Variable** |    **Value**    | **Meaning**
 ---|---|---
-*date* | datetime | The date of log entry
-*time* | datetime | The time of the day of log entry
-*path* | string | The path the user is on
-*user id* | float | The primary key of log table, indicating each user
-*ip* | string | The user's ip address
-*name* | string | The name of user's cohort
-*slack* | string | The name of the slack chanel that user belongs to
-*start date*| datetime | The start date of the cohort
-*end date* | datetime | The end date of the cohort
-*program id* | datetime | This indicates which program is the user in
+*language* | string | The primary programming language of the repo.
+*repo* | string | The name of the repository.
+*readme_contents* | string | The text in the README of the repo.
+
 
 
 <hr style="border-top: 10px groove blueviolet; margin-top: 1px; margin-bottom: 1px"></hr>
