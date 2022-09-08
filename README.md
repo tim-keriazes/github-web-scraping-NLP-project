@@ -7,6 +7,8 @@ Team members: **Jeremy Lagunas**, **Lindy Castellaw**, **Luis Arce**, **Tim Keri
 
 September 08, 2022
 
+***
+
 ## Introduction
 
 Given the rise in popularity in cryptocurrencies, the rise in awareness of sound money and monetary curiosity, as well as the current, very real, rise in inflation, we thought it would be fitting to incorporate the topic of defi, or Decentralized Finance, into our Natural Language Processing Project. Defi is a new field of technology which utilizes distributed ledgers and smart contracts. It seeks to disrupt the current centralized financial system controlled by banks and institutions by providing alternate means of money, financial interactions and services. 
@@ -33,7 +35,7 @@ We will build a model to succesfully predict the main programming language of a 
 8. Perform final model evaluation on test data.
 9. Conclusion, Takeaways, and Next Steps. 
 
-
+***
 
 ## :open_file_folder:   Data Dictionary
 **Variable** |    **Value**    | **Meaning**
@@ -81,6 +83,7 @@ We will build a model to succesfully predict the main programming language of a 
 
 3. The top ten bigrams that appeared and their number of occurences across all languages:
     **Bigram** | **Occurences**
+    --- | ---
     (smart, contract) | 1348
     (git, clone) | 759
     (detail, detailssummaryba) | 670
@@ -95,11 +98,11 @@ We will build a model to succesfully predict the main programming language of a 
 
 5. JavaScript and TypeScript utilized characters/words much more than other programming languages. 
 
+***
 
 ## <a name="model"></a>Modeling:
 [[Back to top](#top)]
 
-### Model Preparation:
 
 ### Baseline
     
@@ -107,7 +110,6 @@ Baseline will be predicting the language to be the most popular language (JavaSc
 - Baseline Results: 0.243351
     
 
-***
        
 ## Model Performance on Validate
 
@@ -151,6 +153,8 @@ Baseline will be predicting the language to be the most popular language (JavaSc
     3. Utilize the acquire.py file to acquire the data. 
     4. Utilize the prepare.py file to clean the data. 
     5. Run the nlp_repository_classification_project_final_nb.ipynb
+
+***
 
 ## <a name="conclusion"></a>Conclusion:
 [[Back to top](#top)]
