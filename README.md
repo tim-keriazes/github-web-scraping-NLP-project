@@ -5,13 +5,37 @@ Team members: **Jeremy Lagunas**, **Lindy Castellaw**, **Luis Arce**, **Tim Keri
 
 ## [Final Presentation](https://docs.google.com/presentation/d/1c7miCoOi6WboRbjxgJ3QwWLkWU0SzZHA5WGdjdK600U/edit?usp=sharing)
 
-September 2022
+September 08, 2022
+
+***
+
+## Introduction
+
+Given the rise in popularity in cryptocurrencies, the rise in awareness of sound money and monetary curiosity, as well as the current, very real, rise in inflation, we thought it would be fitting to incorporate the topic of defi, or Decentralized Finance, into our Natural Language Processing Project. Defi is a new field of technology which utilizes distributed ledgers and smart contracts. It seeks to disrupt the current centralized financial system controlled by banks and institutions by providing alternate means of money, financial interactions and services. 
+
+## Project Description
+
+We will build a model to succesfully predict the main programming language of a repository with #defi (Decentralized Finance) in it, given the text of the README file. 
 
 ## 📈   Project Goals
 
-We will build a model to succesfully predict the programming language of a DeFi (Decentralized Finance) respository, given the text of the README file. 
+- Successfully acquire and clean necessary data.
+- Generate insightful visuals to show findings and data relationships.
+- Generate a predictive model which accurately predicts the main programming language of a Repo based on that Repo's README text. 
 
+## 📅  Project Outline
 
+1. Investigate the repository search #defi.
+2. Capture the urls and endpoints for each repo.
+3. Acquire the data: Use the GitHub API to access the data and convert it into a DataFrame. (Our data comes from searching #defi as of 09/02/2022)
+4. Clean the data: Remove special characters, lemmatize it, remove stop words, and handle nulls.  
+5. Explore the data: Find the most common words overall, see each programming language's most common words, and try to see if there are words which uniquely identify a programming language. 
+6. Model the data : Establish baseline, transform the data for modeling, fit the models, and build a function that will take in the text of a README file, and try to predict the programming language.
+7. Evaluate the models: Compare the performace of the models to each other and to the baseline. Determine which model will be used on test data.
+8. Perform final model evaluation on test data.
+9. Conclusion, Takeaways, and Next Steps. 
+
+***
 
 ## :open_file_folder:   Data Dictionary
 **Variable** |    **Value**    | **Meaning**
@@ -30,150 +54,105 @@ We will build a model to succesfully predict the programming language of a DeFi 
 
 <hr style="border-top: 10px groove blueviolet; margin-top: 1px; margin-bottom: 1px"></hr>
 
-## :placard:    Project Plan
-#### :one:   Data Acquisition
+## Exploration Key Findings
 
-<details>
-<summary> Gather data from GitHub Repositories</summary>
-
-- Create env.py file to establish connection with GitHub
-
-- Use **curriculum_log** database in the mySQL server
-
-- Write query to join useful tables:  <u>cohorts, logs</u>
-     ```sh
-      SELECT 
-        date,
-        time,
-        ip,
-        path,
-        user_id,
-        cohort_id,
-        name as cohort_name,
-        slack,
-        start_date,
-        end_date,
-        program_id
-     FROM
-        curriculum_logs.logs
-     join
-        curriculum_logs.cohorts on cohort_id = id
-     ```
-</details>
-
-<details>
-<summary> acqure.py</summary>
-
-- Create acquire.py and user-defined function `get_data()` to gather data from mySQL
-     ```sh
-     def get_data():
-        if os.path.isfile('curriculum.csv'):
+1. The 10 most common words and number of appearances in the READMEs:
+    **Word** | **Appearances**
+    ---|---
+    contract | 3914
+    token | 3460
+    run | 1740
+    1 | 1722
+    smart | 1622
+    ethereum | 1530
+    project | 1530
+    address | 1503
+    detail | 1499
+    install | 1438
     
-            df = pd.read_csv('curriculum.csv', index_col=0)
-        
-        else:
+2. Of the 1000 repositories that were pulled, the most common languages were as follows:
+    **Language** | **Breakdown**
+    ---|---
+    JavaScript | 0.237624
+    TypeScript | 0.221782
+    Solidity | 0.165347
+    Not Specified | 0.127723
+    Python | 0.058416
+    Rust | 0.031683
+    Go | 0.025743
 
-            df = new_data()
+3. The top ten bigrams that appeared and their number of occurences across all languages:
+    **Bigram** | **Occurences**
+    --- | ---
+    (smart, contract) | 1348
+    (git, clone) | 759
+    (detail, detailssummaryba) | 670
+    (styledisplayinline, width13) | 414
+    (npm, install) | 350
+    (srchttpsgitioj9co9, styledisplayinline) | 342
+    (npm, run) | 321
+    (decimal, 18) | 315
+    (chainid, 1) | 309
 
-            df.to_csv('curriculum.csv')
-        
-        return df
-    ```
-- Import [acquire.py](acquire.py)
+4. The length of READMEs did vary by programming language. 
 
-- Test acquire function
+5. JavaScript and TypeScript utilized characters/words much more than other programming languages. 
 
-- Calling the function, and store the table in the form of dataframe
-    ```sh
-    df = acquire.get_data()
-    ```
-</details>
-
-#### :two:   Data Preparation
-
-<details>
-<summary> Data Cleaning</summary>
-
-
-</details>
-
-#### :three:   Exploratory Analysis
-
-    
-## 📅 Timeline for Data Science Team
-By September 2nd
-- [x] Sketch out plan and assign each team member task
-- [x] Data Acquisition: acquire data from GitHub repositories
-- [x] README initial structure
-
-
+***
 
 ## <a name="model"></a>Modeling:
 [[Back to top](#top)]
 
-### Model Preparation:
 
 ### Baseline
     
-- Baseline Results: 
+Baseline will be predicting the language to be the most popular language (JavaScript).
+- Baseline Results: 0.243351
     
 
-- Selected features to input into models:
-    - features = []
+       
+## Model Performance on Validate
 
-***
-
-### Models and R<sup>2</sup> Values:
-- Will run the following regression models:
-
-    
-
-- Other indicators of model performance with breif defiition and why it's important:
-
-    
-    
-#### Model 1: Linear Regression (OLS)
+### Model 1: Decision Tree (DT)
 
 
-- Model 1 results:
+- Model 1 results: 0.351064
 
 
 
-### Model 2 : Lasso Lars Model
+### Model 2 : Random Forest (with a max depth of 6)
 
 
-- Model 2 results:
+- Model 2 results: 0.734043
 
-
-### Model 3 : Tweedie Regressor (GLM)
-
-- Model 3 results:
-
-
-### Model 4: Quadratic Regression Model
-
-- Model 4 results:
 
 
 ## Selecting the Best Model:
 
 ### Use Table below as a template for all Modeling results for easy comparison:
 
-| Model | Validation/Out of Sample RMSE | R<sup>2</sup> Value |
-| ---- | ----| ---- |
-| Baseline | 0.167366 | 2.2204 x 10<sup>-16</sup> |
-| Linear Regression (OLS) | 0.166731 | 2.1433 x 10<sup>-3</sup> |  
-| Tweedie Regressor (GLM) | 0.155186 | 9.4673 x 10<sup>-4</sup>|  
-| Lasso Lars | 0.166731 | 2.2204 x 10<sup>-16</sup> |  
-| Quadratic Regression | 0.027786 | 2.4659 x 10<sup>-3</sup> |  
+| Model | Performace |
+| ---- | ----|
+| Baseline | 0.243351 |
+| Decision Tree (DT) | 0.351064 |  
+| Random Forest | 0.734043 |   
 
 
-- {} model performed the best
+- Random Forest model performed the best
 
 
 ## Testing the Model
 
-- Model Testing Results
+- Model Testing Results: 0.684211
+
+***
+
+## Steps to Reproduce
+    1. Ensure you have the necessary token to access GitHub's API.
+    2. Import the necesary libraries.
+    3. Utilize the acquire.py file to acquire the data. 
+    4. Utilize the prepare.py file to clean the data. 
+    5. Run the nlp_repository_classification_project_final_nb.ipynb
 
 ***
 
