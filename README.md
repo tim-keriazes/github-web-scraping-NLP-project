@@ -94,8 +94,7 @@ We will build a model to succesfully predict the main programming language of a 
 
 ***
 
-## <a name="model"></a>Modeling:
-[[Back to top](#top)]
+## <a name="model"></a>Modeling
 
 
 ### Baseline
@@ -143,13 +142,23 @@ Baseline will be predicting the language to be the most popular language (JavaSc
 
 ## Steps to Reproduce
     1. Ensure you have the necessary token to access GitHub's API.
-    2. Import the necesary libraries.
+    2. Import the necessary libraries.
     3. Utilize the acquire.py file to acquire the data. 
     4. Utilize the prepare.py file to clean the data. 
     5. Run the nlp_repository_classification_project_final_nb.ipynb
 
 ***
 
-## <a name="conclusion"></a>Conclusion:
+## <a name="conclusion"></a>Conclusion
+
+We found that the most popular languages were JavaScript, TypeScript, Solidity, and Python.
+The most common words used across all READMEs were contract, token, and run.
+Our final model (Random Forest max depth of 6) performed with an accuracy of 68.4%. 
+We didn’t expect there to be so many repos that aren’t labeled with a language and we didn’t expect so many random numeric strings to show up during our Feature Engineering.
+
+If we had more time, we would investigate similarities across languages to see if we can determine the computing language used by unlabeled repositories. 
+
+***
+
 [[Back to top](#top)]
 
