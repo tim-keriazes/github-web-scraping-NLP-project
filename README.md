@@ -15,7 +15,7 @@ Given the rise in popularity in cryptocurrencies, the rise in awareness of sound
 
 ## Project Description
 
-We will build a model to succesfully predict the main programming language of a repository with #defi (Decentralized Finance) in it, given the text of the README file. 
+Utilizing the contents of readme files within repositories on github, we set out to build a predictive model that would allow us to determine the programming language of the repository/project based on the contents of the readme. Utilizing web scraping techniques, we built a dataset containing the name of the repository, the programming language utilized, and the contents of the readme. Through some basic cleaning and preparation, we will explore the dataset, looking for patterns, and creating some visualizations that show the most common words in the readme, whether the length varies by programming language, unique words, and any other identifying features. We will utilize the TfidfVectorizer() to transform the contents of the readme into features that will be fed into our predictive classification models. Utilized the following libraries; pandas, numpy, matplotlib, seaborn, wordcloud, nltk, unicodedata. Modeled using sklearn’s DecisionTreeClassifier and RandomForestClassifier and evaluated with sklearn’s metrics including classification report, confusion matrix, and mean squared error.. 
 
 ## 📈   Project Goals
 
